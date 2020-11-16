@@ -13,8 +13,9 @@ $(".sampleSurvey input[type='submit']").click(function(e){
   for (var i = 0; i < inputdata.length; i++) {
     var name = inputdata[i]["name"];
     var value = inputdata[i]["value"];
-    console.log(name + " " + value);
-    inputJson[name] = value;
+    var comm = inputdata[i]["comm"];
+    //console.log(name + " " + value);
+    inputJson[name] = comm;
   }
 
   console.log(inputJson);
