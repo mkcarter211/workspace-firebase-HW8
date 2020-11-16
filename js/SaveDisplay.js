@@ -15,7 +15,7 @@ $(".sampleSurvey input[type='submit']").click(function(e){
     var value = inputdata[i]["value"];
     var comm = inputdata[i]["comm"];
     //console.log(name + " " + value);
-    inputJson[name] = comm;
+    inputJson[name] = value;
   }
 
   console.log(inputJson);
