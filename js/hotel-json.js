@@ -29,11 +29,23 @@ $("input[type='button']").click(function(e) {
   // var cost = parseInt(inputJson["room"].slice(-3));
   // console.log("The cost for this reservation is " + night * cost);
 
+
+
   
   firebase
     .firestore()
     .collection("hotel")
     .add(inputJson);
+
+    firebase
+    .firestore()
+    .collection("hotel")
+    .onSnapshot(function(querySnapshot){
+      console.log(querySnapshot.size);
+      querySnapshot.forEach(doc =>{
+        console.log(doc.data());
+      });
+    });
 
 
   /* clear the entry */

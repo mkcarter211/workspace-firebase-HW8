@@ -36,4 +36,5 @@ firebase
     .collection("hotel")
     .add(inputJson);
 
+
 // update the result in table
