@@ -43,9 +43,35 @@ $("input[type='button']").click(function(e) {
     .onSnapshot(function(querySnapshot){
       console.log(querySnapshot.size);
       querySnapshot.forEach(doc =>{
+        var roomtype = doc.data().room;
+        if (roomtype == "1 Bedroom smaller suite $139"){
+          //do sth
+        }
+
+          //do sth
         console.log(doc.data());
       });
     });
+
+    firebase
+  .firestore()
+  .collection("hoteldata")
+  .onSnapshot(function(querySnapshot) {
+    //console.log(querySnapshot);
+    console.log(querySnapshot.size);
+    querySnapshot.forEach(doc =>{
+      console.log(doc.data());
+     // var roomtype= doc.data().room;
+      //if (roomtype =="1 Bedroom Smaller Suite $169"){
+        // do sth
+      //  console.log("This roomtype")
+     // }
+   
+
+      
+    });
+
+  });
 
 
   /* clear the entry */

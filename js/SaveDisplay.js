@@ -38,3 +38,6 @@ firebase
 
 
 // update the result in table
+var value = parseInt($("#ans3").text()) + 1;
+console.log(value);
+$('ans1').text('5');
