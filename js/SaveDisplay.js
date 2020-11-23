@@ -17,8 +17,8 @@ firebase.initializeApp(firebaseConfig);
 $(".sampleSurvey input[type='submit']").click(function(e){
   e.preventDefault;
   var inputdata = $("form").serializeArray();
+  var inputJson = {};
   console.log(inputdata);
-  var inputJson = [];
   for (var i = 0; i < inputdata.length; i++) {
     var name = inputdata[i]["name"];
     var value = inputdata[i]["value"];
@@ -28,13 +28,17 @@ $(".sampleSurvey input[type='submit']").click(function(e){
   }
 
   console.log(inputJson);
-
-});
-
-firebase
+  firebase
     .firestore()
     .collection("hotel")
     .add(inputJson);
+
+});
+firebase
+    .firestore()
+    .collection("hotel")
+    .add();
+
 
 
 // update the result in table
