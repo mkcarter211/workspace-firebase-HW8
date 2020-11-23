@@ -68,7 +68,19 @@ $("input[type='button']").click(function(e) {
     querySnapshot.forEach(doc =>{
       console.log(doc.data());
      var roomtype= doc.data().room;
-      if (roomtype =="1 Bedroom Smaller Suite $169"){
+      if (roomtype =="1 Bedroom Smaller Suite $139"){
+        // do sth
+      console.log("This roomtype")
+     }
+     if (roomtype =="1 Bedroom Larger Suite $169"){
+        // do sth
+      console.log("This roomtype")
+     }
+     if (roomtype =="1 Bedroom Junior Suite $289"){
+        // do sth
+      console.log("This roomtype")
+     }
+     if (roomtype =="Grand Suite $289"){
         // do sth
       console.log("This roomtype")
      }

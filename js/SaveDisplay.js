@@ -18,7 +18,7 @@ $(".sampleSurvey input[type='submit']").click(function(e){
   e.preventDefault;
   var inputdata = $("form").serializeArray();
   console.log(inputdata);
-  var inputJson = {};
+  var inputJson = [];
   for (var i = 0; i < inputdata.length; i++) {
     var name = inputdata[i]["name"];
     var value = inputdata[i]["value"];
@@ -38,6 +38,36 @@ firebase
 
 
 // update the result in table
+firebase
+  .firestore()
+  .collection("hoteldata")
+  .onSnapshot(function(querySnapshot) {
+    //console.log(querySnapshot);
+    console.log(querySnapshot.size);
+    querySnapshot.forEach(doc =>{
+      console.log(doc.data());
+     doc.data().choice=="A";
+     if((".sampleSurvey.A").isSelected){
+       parseInt($("#ans1").text()) + 1;
+     }
+     if((".sampleSurvey.B").isSelected){
+       parseInt($("#ans2").text()) + 1;
+     }
+     if((".sampleSurvey.C").isSelected){
+       parseInt($("#ans3").text()) + 1;
+     }
+     if((".sampleSurvey.D").isSelected){
+       parseInt($("#ans4").text()) + 1;
+     }
+     if((".sampleSurvey.E").isSelected){
+       parseInt($("#ans5").text()) + 1;
+     }
+   
+
+      
+    });
+
+  });
 //var value = parseInt($("#ans3").text()) + 1;
 console.log(value);
 //$('ans1').text('5');
