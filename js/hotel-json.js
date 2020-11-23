@@ -29,6 +29,9 @@ $("input[type='button']").click(function(e) {
   // var cost = parseInt(inputJson["room"].slice(-3));
   // console.log("The cost for this reservation is " + night * cost);
 
+  const array1 = ['a','b','c'];
+  array1.forEach(element => console.log("this is" + element));
+
 
 
   
@@ -43,13 +46,16 @@ $("input[type='button']").click(function(e) {
     .onSnapshot(function(querySnapshot){
       console.log(querySnapshot.size);
       querySnapshot.forEach(doc =>{
-        var roomtype = doc.data().room;
-        if (roomtype == "1 Bedroom smaller suite $139"){
+        console.log(doc.data());
+        console.log(doc.data().room);
+        console.log(doc.data().checkout);
+        var roomtype = (doc.data().room);
+        //if (roomtype == "1 Bedroom smaller suite $139"){
           //do sth
-        }
+        //}
 
           //do sth
-        console.log(doc.data());
+        //console.log(doc.data());
       });
     });
 
@@ -61,11 +67,27 @@ $("input[type='button']").click(function(e) {
     console.log(querySnapshot.size);
     querySnapshot.forEach(doc =>{
       console.log(doc.data());
-     // var roomtype= doc.data().room;
-      //if (roomtype =="1 Bedroom Smaller Suite $169"){
+     var roomtype= doc.data().room;
+      if (roomtype =="1 Bedroom Smaller Suite $169"){
         // do sth
-      //  console.log("This roomtype")
-     // }
+      console.log("This roomtype")
+     }
+     doc.data().choice=="A";
+     if((".sampleSurvey.A").isSelected){
+       parseInt($("#ans1").text()) + 1;
+     }
+     if((".sampleSurvey.B").isSelected){
+       parseInt($("#ans2").text()) + 1;
+     }
+     if((".sampleSurvey.C").isSelected){
+       parseInt($("#ans3").text()) + 1;
+     }
+     if((".sampleSurvey.D").isSelected){
+       parseInt($("#ans4").text()) + 1;
+     }
+     if((".sampleSurvey.E").isSelected){
+       parseInt($("#ans5").text()) + 1;
+     }
    
 
       
