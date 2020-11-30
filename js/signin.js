@@ -8,31 +8,32 @@ var firebaseConfig = {
   appId: "1:879915568978:web:ba691188eca4a35c95748b",
   measurementId: "G-CQ4PCHHTX4"
 };
-
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 
-console.log("start...");
-
-$('#signup-form').submit(function(e){
-  e.preventDefault();
-  console.log("click the submit");
-  //value
+$("#Login").submit(function(e){
+  e.preventDefault
   var inputdata = $("form").serializeArray();
   console.log(inputdata);
-  var inputJson = {};
+  var inputJSON = {};
   for (var i = 0; i < inputdata.length; i++){
     var name = inputdata[i]["name"];
     var value = inputdata[i]["value"];
     console.log(name + " "+ value);
     inputJson[name] = value;
   }
-  var email = inputJson["username"];
-  var psw = inputJson["password"];
-  firebase.auth().createUserWithEmailAndPassword(email,psw).then(user =>{
-    console.log("success");
+  var email = inputJSON["username"];
+  var psw = inputJSON["password"];
+  var email = $("login").serializeArray();
+  var psw = $("login.pwd").serializeArray();
+
+  firebase.auth().signInWithEmailAndPassword(email,password).then
+  (success=>{
+    console.log("login successfully");
+    let user = firebase.auth().currentUser;
+
   }).catch(error=>{
-    console.log(error.code);
-    console.log(error.message);
-  });
+    var errormessage = error.message;
+    console.log(errorMessage);
+  })
 });
